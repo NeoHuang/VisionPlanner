@@ -1,0 +1,11 @@
+<div>
+  <input class="form-control patient-search" placeholder="Search Patient" onkeyup="filterPatient(this.value)">
+  <a class="patient-add-button" href='<%= new_patient_path %>' ><img src="/assets/add_user.png" height="30" width="30"></a>
+</div>
+<div id="patientList">
+
+<% @patients.each do |patient| %>
+  <%= render 'patient_card', :patient => patient %>
+    <% end %>
+  </div>
+<br>

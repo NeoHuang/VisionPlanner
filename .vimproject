@@ -1,0 +1,204 @@
+
+VisionPlanner=c:\railsDir\visionPlanner {
+ config.ru
+ Gemfile
+ Gemfile.lock
+ Rakefile
+ README.rdoc
+ app=app {
+  assets=assets {
+   images=images {
+   }
+   javascripts=javascripts {
+    application.js
+    bootstrap-select.min.js
+    bootstrap.js
+    patients.js.coffee
+   }
+   stylesheets=stylesheets {
+    application.css
+    bootstrap.css
+    patients.css.scss
+    scaffolds.css.scss
+    application.css~
+    bootstrap.css~
+   }
+  }
+  controllers=controllers {
+   application_controller.rb
+   patients_controller.rb
+   concerns=concerns {
+   }
+  }
+  helpers=helpers {
+   application_helper.rb
+   patients_helper.rb
+  }
+  mailers=mailers {
+  }
+  models=models {
+   patient.rb
+   patient.rb~
+   concerns=concerns {
+   }
+  }
+  views=views {
+   layouts=layouts {
+    application.html.erb
+    application.html.erb~
+   }
+   patients=patients {
+    edit.html.erb
+    index.html.erb
+    index.json.jbuilder
+    new.html.erb
+    show.html.erb
+    show.json.jbuilder
+    _form.html.erb
+    index.html.erb~
+   }
+  }
+ }
+ bin=bin {
+  bundle
+  rails
+  rake
+ }
+ config=config {
+  application.rb
+  boot.rb
+  database.yml
+  environment.rb
+  routes.rb
+  environments=environments {
+   development.rb
+   production.rb
+   test.rb
+  }
+  initializers=initializers {
+   backtrace_silencers.rb
+   filter_parameter_logging.rb
+   inflections.rb
+   mime_types.rb
+   secret_token.rb
+   session_store.rb
+   wrap_parameters.rb
+  }
+  locales=locales {
+   en.yml
+  }
+ }
+ db=db {
+  development.sqlite3
+  schema.rb
+  seeds.rb
+  migrate=migrate {
+   20131009100743_create_patients.rb
+  }
+ }
+ lib=lib {
+  assets=assets {
+  }
+  tasks=tasks {
+  }
+ }
+ log=log {
+  development.log
+ }
+ public=public {
+  404.html
+  422.html
+  500.html
+  favicon.ico
+  robots.txt
+ }
+ test=test {
+  test_helper.rb
+  controllers=controllers {
+   patients_controller_test.rb
+  }
+  fixtures=fixtures {
+   patients.yml
+  }
+  helpers=helpers {
+   patients_helper_test.rb
+  }
+  integration=integration {
+  }
+  mailers=mailers {
+  }
+  models=models {
+   patient_test.rb
+  }
+ }
+ tmp=tmp {
+  cache=cache {
+   assets=assets {
+    development=development {
+     sass=sass {
+      ef8762f45586e5938a46ae24a785cf9276d2dbd8=ef8762f45586e5938a46ae24a785cf9276d2dbd8 {
+       patients.css.scssc
+       scaffolds.css.scssc
+      }
+     }
+     sprockets=sprockets {
+      002d6b9af54f94088e07ec2061da7ce1
+      05307666b626ddfa9efc97cd72e36bbf
+      0fbe878585edda90597efd130f73811c
+      10fcfbe6ebae11a40c8eac41939a1b9a
+      113243290da27654bfbd796b67ec69f0
+      13fe41fee1fe35b49d145bcc06610705
+      1439cb38760e5c05a727db1206c15d7d
+      166c056119ebdfb8b7104c97b424b423
+      2757fae967a52701ef3724ae5a76c4a8
+      2f5173deea6c795b8fdde723bb4b63af
+      33782ac2c4f2c06583a63316ccbe2e42
+      357970feca3ac29060c1e3861e2c0953
+      365b361d3736359c2164295445c885b1
+      42acae6eaa56020f3878ad459488dc6f
+      562c2d168da585f80579347d10790a0a
+      5863688f84393dd84e3f70efe76c3df0
+      5b7dcfd1f5f7429b5df2d02f33050a64
+      5e621c3fcc5df4cee9defb526baac15c
+      5e71bf8c8452d45989fb8d715a361102
+      5fdcef964312a8f7ae5b80ed3d96655b
+      62e62e574dd2423edc53bf095a7e0e1a
+      71b47003a528b92ca143fe4bd5bc53f1
+      72fd3eeea1d94c4292772d92c87f4ac9
+      7d5d2216d11a88d6077a60027211fb08
+      7e7644dffd4cf9a674f2346ef6de5297
+      86f909bf5baee50515afadaa3ce2df8f
+      870784036e18c060e8376df9e561b019
+      a276bc7c30da4b57cf94105bfb28ce11
+      a995a3b95e4a7b0e5b9fa7c49efd6b74
+      aa61726715c46ea17a59c216bcadaa29
+      ae0bbcdc25e276525107ec076c7a42fa
+      afdd0fab8dfe6163d9a35354abbbad96
+      bd3936370d0f952ada5774e2230046ed
+      c38636851a1c8ac7b21c904e9177bfb2
+      cffd775d018f68ce5dba1ee0d951a994
+      d771ace226fc8215a3572e0aa35bb0d6
+      d81b0d3e2c8e46439a389cdda8e2cce6
+      e459168835a5f27b832ace20874f7c10
+      f7cbd26ba1d28d48de824f0e94586655
+     }
+    }
+   }
+  }
+  pids=pids {
+   server.pid
+  }
+  sessions=sessions {
+  }
+  sockets=sockets {
+  }
+ }
+ vendor=vendor {
+  assets=assets {
+   javascripts=javascripts {
+   }
+   stylesheets=stylesheets {
+   }
+  }
+ }
+}

@@ -1,0 +1,95 @@
+// Place all the styles related to the Patients controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$patient_card_width: 350px;
+$patient_card_height: 80px;
+.patient-card
+{
+  box-shadow: 2px 2px 3px rgb(238, 238, 238);
+  border: 1px solid rgb(223, 223, 223);
+  height: $patient_card_height;
+  margin-right: 10px;
+  margin-top: 10px;
+  width: $patient_card_width;
+  transition: all 0.2s linear 0s;
+  position: relative;
+  float:left;
+}
+.patient-card:hover
+{
+  box-shadow: 2px 2px 5px rgb(153, 153, 153);
+}
+.absolute
+{
+  position:absolute;
+}
+.gender-img
+{
+  position:absolute;
+left: 10px;
+top:5px;
+width:$patient_card_height - 5;
+
+}
+a.patient-href
+{
+  text-decoration: none;
+  width: $patient_card_width;
+  height:$patient_card_height ;
+  float: left;
+
+
+}
+a.patient-href:hover
+{
+  color: transparent;
+  text-decoration: none;
+  background-color: transparent;
+}
+.patient-name
+{
+  width: $patient_card_width - 100;
+position: absolute;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+left: 100px;
+margin-top: 5px;
+font-size:200%;
+height:25px;
+}
+
+.patient-birth
+{
+position: absolute;
+left: 100px;
+top: 2.5em;
+}
+
+.patient-search
+{
+  
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 300px;
+  display: inline;
+}
+.patient-add-button
+{
+  clear:both;
+  display:block;
+  width: 36px;
+  height: 36px;
+  padding: 3px;
+  border: 1px solid rgb(223, 223, 223);
+}
+
+.patient-add-button:hover
+{
+  color: transparent;
+  text-decoration: none;
+  background-color: transparent;
+  
+  border: 1px solid rgb(153, 153, 153);
+}

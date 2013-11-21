@@ -1,0 +1,12 @@
+<div class="patient-card">
+  <div class="absolute">
+    <img class="gender-img" src = '<%= Patient.getGenderImg(patient.gender) %>'>
+  </div>
+  <div>
+    <div class = "patient-name"><%= patient.firstname + " " + patient.lastname%></div>
+    <div class = "patient-birth"><%= patient.birth %> </div>
+    
+  </div>
+  <a class="patient-href" href='<%=patient_path(patient) %>'>
+  </a>
+</div>
