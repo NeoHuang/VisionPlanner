@@ -1,7 +1,7 @@
 // Place all the styles related to the Patients controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$patient_card_width: 350px;
+$patient_card_width: 250px;
 $patient_card_height: 80px;
 .patient-card
 {
@@ -55,7 +55,7 @@ overflow: hidden;
 white-space: nowrap;
 left: 100px;
 margin-top: 5px;
-font-size:200%;
+font-size:150%;
 height:25px;
 }
 
@@ -92,4 +92,15 @@ top: 2.5em;
   background-color: transparent;
   
   border: 1px solid rgb(153, 153, 153);
+}
+.measure-img
+{
+  float: left;
+  display: inline;
+}
+.measure-container
+{
+  margin-left:10px;
+margin-top: 0px;
+width: 300px;
 }

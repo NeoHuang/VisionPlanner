@@ -1,4 +1,5 @@
 class Patient < ActiveRecord::Base
+  has_many :k_measurements
 				def Patient.convertGender(intGender)
 								case intGender
 								when 0

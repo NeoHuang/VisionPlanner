@@ -1,0 +1,63 @@
+<h1>Listing k_measurements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timestamp</th>
+      <th>K1</th>
+      <th>K2</th>
+      <th>Axis</th>
+      <th>White to white</th>
+      <th>Pupil x</th>
+      <th>Pupil y</th>
+      <th>Pupil rx</th>
+      <th>Pupil ry</th>
+      <th>Pupil q</th>
+      <th>Limbus x</th>
+      <th>Limbus y</th>
+      <th>Limbus rx</th>
+      <th>Limbus ry</th>
+      <th>Limbus q</th>
+      <th>Cr x</th>
+      <th>Cr y</th>
+      <th>Cr q</th>
+      <th>Patient</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @k_measurements.each do |k_measurement| %>
+      <tr>
+        <td><%= k_measurement.timestamp %></td>
+        <td><%= k_measurement.k1 %></td>
+        <td><%= k_measurement.k2 %></td>
+        <td><%= k_measurement.axis %></td>
+        <td><%= k_measurement.white_to_white %></td>
+        <td><%= k_measurement.pupil_x %></td>
+        <td><%= k_measurement.pupil_y %></td>
+        <td><%= k_measurement.pupil_rx %></td>
+        <td><%= k_measurement.pupil_ry %></td>
+        <td><%= k_measurement.pupil_q %></td>
+        <td><%= k_measurement.limbus_x %></td>
+        <td><%= k_measurement.limbus_y %></td>
+        <td><%= k_measurement.limbus_rx %></td>
+        <td><%= k_measurement.limbus_ry %></td>
+        <td><%= k_measurement.limbus_q %></td>
+        <td><%= k_measurement.cr_x %></td>
+        <td><%= k_measurement.cr_y %></td>
+        <td><%= k_measurement.cr_q %></td>
+        <td><%= k_measurement.patient_id %></td>
+        <td><%= link_to 'Show', k_measurement %></td>
+        <td><%= link_to 'Edit', edit_k_measurement_path(k_measurement) %></td>
+        <td><%= link_to 'Destroy', k_measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New K measurement', new_k_measurement_path %>

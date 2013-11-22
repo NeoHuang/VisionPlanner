@@ -1,0 +1,11 @@
+default: &defaults
+  image_data_root: /assets/
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

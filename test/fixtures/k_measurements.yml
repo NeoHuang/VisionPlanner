@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  timestamp: 1
+  k1: 1.5
+  k2: 1.5
+  axis: 1.5
+  white_to_white: 1.5
+  pupil_x: 1.5
+  pupil_y: 1.5
+  pupil_rx: 1.5
+  pupil_ry: 1.5
+  pupil_q: 1.5
+  limbus_x: 1.5
+  limbus_y: 1.5
+  limbus_rx: 1.5
+  limbus_ry: 1.5
+  limbus_q: 1.5
+  cr_x: 1.5
+  cr_y: 1.5
+  cr_q: 1.5
+  patient_id: 1
+
+two:
+  timestamp: 1
+  k1: 1.5
+  k2: 1.5
+  axis: 1.5
+  white_to_white: 1.5
+  pupil_x: 1.5
+  pupil_y: 1.5
+  pupil_rx: 1.5
+  pupil_ry: 1.5
+  pupil_q: 1.5
+  limbus_x: 1.5
+  limbus_y: 1.5
+  limbus_rx: 1.5
+  limbus_ry: 1.5
+  limbus_q: 1.5
+  cr_x: 1.5
+  cr_y: 1.5
+  cr_q: 1.5
+  patient_id: 1

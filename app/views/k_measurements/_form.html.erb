@@ -1,0 +1,93 @@
+<%= form_for(@k_measurement) do |f| %>
+  <% if @k_measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@k_measurement.errors.count, "error") %> prohibited this k_measurement from being saved:</h2>
+
+      <ul>
+      <% @k_measurement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :timestamp %><br>
+    <%= f.number_field :timestamp %>
+  </div>
+  <div class="field">
+    <%= f.label :k1 %><br>
+    <%= f.text_field :k1 %>
+  </div>
+  <div class="field">
+    <%= f.label :k2 %><br>
+    <%= f.text_field :k2 %>
+  </div>
+  <div class="field">
+    <%= f.label :axis %><br>
+    <%= f.text_field :axis %>
+  </div>
+  <div class="field">
+    <%= f.label :white_to_white %><br>
+    <%= f.text_field :white_to_white %>
+  </div>
+  <div class="field">
+    <%= f.label :pupil_x %><br>
+    <%= f.text_field :pupil_x %>
+  </div>
+  <div class="field">
+    <%= f.label :pupil_y %><br>
+    <%= f.text_field :pupil_y %>
+  </div>
+  <div class="field">
+    <%= f.label :pupil_rx %><br>
+    <%= f.text_field :pupil_rx %>
+  </div>
+  <div class="field">
+    <%= f.label :pupil_ry %><br>
+    <%= f.text_field :pupil_ry %>
+  </div>
+  <div class="field">
+    <%= f.label :pupil_q %><br>
+    <%= f.text_field :pupil_q %>
+  </div>
+  <div class="field">
+    <%= f.label :limbus_x %><br>
+    <%= f.text_field :limbus_x %>
+  </div>
+  <div class="field">
+    <%= f.label :limbus_y %><br>
+    <%= f.text_field :limbus_y %>
+  </div>
+  <div class="field">
+    <%= f.label :limbus_rx %><br>
+    <%= f.text_field :limbus_rx %>
+  </div>
+  <div class="field">
+    <%= f.label :limbus_ry %><br>
+    <%= f.text_field :limbus_ry %>
+  </div>
+  <div class="field">
+    <%= f.label :limbus_q %><br>
+    <%= f.text_field :limbus_q %>
+  </div>
+  <div class="field">
+    <%= f.label :cr_x %><br>
+    <%= f.text_field :cr_x %>
+  </div>
+  <div class="field">
+    <%= f.label :cr_y %><br>
+    <%= f.text_field :cr_y %>
+  </div>
+  <div class="field">
+    <%= f.label :cr_q %><br>
+    <%= f.text_field :cr_q %>
+  </div>
+  <div class="field">
+    <%= f.label :patient_id %><br>
+    <%= f.number_field :patient_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

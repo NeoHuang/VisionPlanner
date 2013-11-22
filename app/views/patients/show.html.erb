@@ -1,24 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class = "col-md-4">
+    
+  <%= render "patient_card", :patient => @patient %>
+</div>
 
+</div>
 <p>
-  <strong>Firstname:</strong>
-  <%= @patient.firstname %>
-</p>
+<div id="accordion">
+  <% i = 0 %>
+  <% @patient.k_measurements.each do |measurement| %>
+    <% i = i+1 %>
+    <h3>
+      <%= "Keratometry #{i}" %>
+  </h3>
+  <div class="row">
+    <%= image_tag APP_CONFIG['image_data_root'] + measurement.image, :width => 300 , :class => "col-md-8"%>
+    <div class="col-md-4">
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @patient.lastname %>
-</p>
+      <table class="table table-bordered"> 
+      <tr>
+        <td>
+          K1
 
-<p>
-  <strong>Birth:</strong>
-  <%= @patient.birth %>
-</p>
+        </td>
+        <td>
+          <%= "#{measurement.k1}mm @ #{measurement.axis}" %>&deg
+      </td> 
+      </tr>
+      <tr>
+        <td>
+          K2
 
-<p>
-  <strong>Gender:</strong>
-  <%= @patient.gender %>
-</p>
+        </td>
+        <td>
+          <%= "#{measurement.k2}mm @ #{measurement.axis - 90}" %>&deg
+      </td> 
+      </tr>
+      <tr>
+        <td>
+          White-to-White
+        </td>
+        <td>
+          <%= "#{sprintf("%0.2f",measurement.limbus_rx * 2)}mm" %>
+      </td> 
+      </tr>
+      <tr>
+        <td>
+          Pupil Size
+        </td>
+        <td>
+          <%= "#{sprintf("%0.2f",measurement.pupil_rx * 2)}mm"%>
+      </td> 
+      </tr>
+    </table>
 
+  </div>
+  </div>
+  <% end %>
+</div>
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>
+<script>
+$(function() {
+    $( "#accordion" ).accordion({heightStyle: "content"});
+  });
+</script>

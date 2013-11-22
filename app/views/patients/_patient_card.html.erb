@@ -1,6 +1,6 @@
 <div class="patient-card">
   <div class="absolute">
-    <img class="gender-img" src = '<%= Patient.getGenderImg(patient.gender) %>'>
+    <img class="gender-img" src = '<%= image_path Patient.getGenderImg(patient.gender) %>'>
   </div>
   <div>
     <div class = "patient-name"><%= patient.firstname + " " + patient.lastname%></div>

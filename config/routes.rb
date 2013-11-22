@@ -1,4 +1,6 @@
 VisionPlanner::Application.routes.draw do
+  resources :k_measurements
+
   resources :patients
 
   get '/search/patient/:query', to: 'patients#search'
