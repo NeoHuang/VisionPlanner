@@ -1,4 +1,6 @@
-<div class="patient-card">
+<div class="patient-card col-md-5 col-xs-12 col-lg-3">
+  <a class="patient-href col-md-5 col-xs-12 col-lg-3"" href='<%=patient_path(patient) %>'>
+
   <div class="absolute">
     <img class="gender-img" src = '<%= image_path Patient.getGenderImg(patient.gender) %>'>
   </div>
@@ -7,6 +9,5 @@
     <div class = "patient-birth"><%= patient.birth %> </div>
     
   </div>
-  <a class="patient-href" href='<%=patient_path(patient) %>'>
   </a>
 </div>

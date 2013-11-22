@@ -10,10 +10,11 @@ $patient_card_height: 80px;
   height: $patient_card_height;
   margin-right: 10px;
   margin-top: 10px;
-  width: $patient_card_width;
   transition: all 0.2s linear 0s;
   position: relative;
   float:left;
+  padding-left:0px;
+  padding-right:0px;
 }
 .patient-card:hover
 {
@@ -34,22 +35,23 @@ width:$patient_card_height - 5;
 a.patient-href
 {
   text-decoration: none;
-  width: $patient_card_width;
   height:$patient_card_height ;
   float: left;
+  width: 100%;
+  padding-left:0px;
+  padding-right:0px;
 
 
 }
 a.patient-href:hover
 {
-  color: transparent;
+  color: black;
   text-decoration: none;
   background-color: transparent;
 }
 .patient-name
 {
-  width: $patient_card_width - 100;
-position: absolute;
+  margin-left:100px;
 text-overflow: ellipsis;
 overflow: hidden;
 white-space: nowrap;
@@ -72,7 +74,6 @@ top: 2.5em;
   margin-top: 10px;
   margin-bottom: 10px;
   margin-right: 10px;
-  width: 300px;
   display: inline;
 }
 .patient-add-button
@@ -100,7 +101,6 @@ top: 2.5em;
 }
 .measure-container
 {
-  margin-left:10px;
 margin-top: 0px;
 width: 300px;
 }

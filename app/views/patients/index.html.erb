@@ -1,8 +1,13 @@
 <div>
-  <input class="form-control patient-search" placeholder="Search Patient" onkeyup="filterPatient(this.value)">
+  <div class="row">
+    <div class="col-sx-12 col-md-4">
+
+  <input class="form-control patient-search "  placeholder="Search Patient" onkeyup="filterPatient(this.value)">
+</div>
+</div>
   <a class="patient-add-button" href='<%= new_patient_path %>' ><%= image_tag "add_user.png", :width=>30, :height => 30 %></a>
 </div>
-<div id="patientList">
+<div id="patientList row">
 
 <% @patients.each do |patient| %>
   <%= render 'patient_card', :patient => patient %>
