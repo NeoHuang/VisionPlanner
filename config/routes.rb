@@ -3,6 +3,7 @@ VisionPlanner::Application.routes.draw do
 
   resources :patients
 
+  root to: 'patients#index'
   get '/search/patient/:query', to: 'patients#search'
   get '/search/patient/', to: 'patients#search'
   # The priority is based upon order of creation: first created -> highest priority.

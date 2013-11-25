@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
 
     respond_to do |format|
       if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
+    format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
         format.json { render action: 'show', status: :created, location: @patient }
       else
         format.html { render action: 'new' }
@@ -83,6 +83,8 @@ class PatientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
-      params.require(:patient).permit(:firstname, :lastname, :birth, :gender)
+      tmp = params.require(:patient).permit(:firstname, :lastname, :birth, :gender)
+      tmp['birth'] = Date.strptime(tmp['birth'], "%Y-%m-%d")
+      tmp
     end
 end

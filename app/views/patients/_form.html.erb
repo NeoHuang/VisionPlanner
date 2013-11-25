@@ -1,33 +1,65 @@
-<%= form_for(@patient) do |f| %>
-  <% if @patient.errors.any? %>
-    <div id="error_explanation">
+<div class="row">
+  <div class="col-lg-4">
+    <%= form_for(@patient) do |f| %>
+
+      <% if @patient.errors.any? %>
+      <div id="error_explanation">
       <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
 
       <ul>
-      <% @patient.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <% @patient.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :firstname %><br>
-    <%= f.text_field :firstname %>
+    <div class="field">
+      <%= f.label "First Name" %><br>
+      <%= f.text_field :firstname, :class=>"form-control",:placeholder=>"First Name" %>
+    </div>
+    <div class="field">
+      <%= f.label "Last Name" %><br>
+      <%= f.text_field :lastname , :class=>"form-control", :placeholder=>"Last Name" %>
+    </div>
+    <div class="field">
+      <%= f.label :birth %><br>
+      <%# f.date_select :birth %>
+      <%# f.date_select :birth %>
+      <input type="text" name="patient[birth]" class="form-control" id="birth" value="<%=@patient.birth %>" placeholder="yyyy-mm-dd" >
+    </div>
+    <div class="field">
+      <%= f.label :gender %><br>
+      <%= f.radio_button :gender , '0',  :checked=>(@patient.gender == 0) %> Male
+      <%= f.radio_button :gender , '1',  :checked=>(@patient.gender == 1 ) %> Female
+      <%= f.radio_button :gender , '2',  :checked=>(@patient.gender == 2) %> Other 
+
+    </div>
+    <div class="actions">
+      <%= f.submit :class=>"btn btn-primary" %>
+    </div>
+  <% end %>
   </div>
-  <div class="field">
-    <%= f.label :lastname %><br>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :birth %><br>
-    <%= f.date_select :birth %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.number_field :gender %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+<script>
+$(function(){
+window.prettyPrint && prettyPrint();
+      var d = new Date(1950, 0, 1);
+			$('#birth').datepicker({
+				dateFormat: 'yy-mm-dd',
+        minDate: "-100Y", maxDate: 0,
+        changeMonth: true,
+        changeYear: true,
+        defaultDate: d
+
+
+			})
+      var dstr = $('#birth')[0].value ;
+      if (dstr !== "")
+      {
+        d = new Date(dstr);
+        $('#birth').datapicker("option", "defaultDate",d); 
+      }
+      }
+ )
+</script>
