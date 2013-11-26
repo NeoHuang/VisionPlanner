@@ -18,7 +18,7 @@ class Patient < ActiveRecord::Base
           when 1
             "/assets/female.png"
           else
-            "/assets/unknowGender.png"
+            "/assets/unknowGender.jpg"
           end
         end
 end
