@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="patientsApp">
 <head>
 <title>Vision Planner</title>
 <%= stylesheet_link_tag    "application", media: "all"  %>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -27,8 +27,7 @@
 								</div><!--/.nav-collapse -->
 				</div>
 </div>
-<div class="container">
-				<%= yield %>
+<div class="container" ng-view>
 </div>
 </body>
 </html>

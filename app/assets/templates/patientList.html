@@ -1,0 +1,26 @@
+<div>
+  <div class="row">
+    <div class="col-sx-12 col-md-4">
+
+      <input class="form-control patient-search "  placeholder="Search Patient" ng-model="query">
+    </div>
+  </div>
+  <a class="patient-add-button" href='#/new' ></a>
+</div>
+<div id="patientList row">
+  
+<div class="patient-card col-md-5 col-xs-12 col-lg-3" ng-repeat="patient in patients">
+  <a class="patient-href col-md-5 col-xs-12 col-lg-3"" href='{{patient.url}}'>
+
+  <div class="absolute">
+    <img class="gender-img" src = '{{patient.img_url}}'>
+  </div>
+  <div>
+    <div class = "patient-name">{{patient.firstname}} {{patient.lastname}}</div>
+    <div class = "patient-birth">{{patient.birth}}  </div>
+    
+  </div>
+  </a>
+</div>
+
+</div> <br>
