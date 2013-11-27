@@ -1,0 +1,68 @@
+
+<div class="row" style="margin-left:0;margin-right:0;">
+
+<div class="patient-card col-md-5 col-xs-12 col-lg-3" >
+
+  <div class="absolute">
+    <img class="gender-img" ng-src = '{{patient.img_url}}'>
+  </div>
+  <div>
+    <div class = "patient-name">{{patient.firstname}} {{patient.lastname}}</div>
+    <div class = "patient-birth">{{patient.birth}}  </div>
+    
+  </div>
+  </a>
+</div>
+</div>
+<p>
+<div id="accordion">
+    <h3 ng-repeat-start="measurement in patient.measurements">
+      Keratometry 
+  </h3>
+  <div class="row" ng-repeat-end >
+    <img class="col-xs-12 col-md-8" ng-src="{{measurement.image}}">
+    <div class="col-xs-12 col-md-4" >
+
+      <table class="table table-bordered"> 
+      <tr>
+        <td>
+          K1
+        </td>
+        <td>
+          {{measurement.k1}}mm @ {{measurement.axis}} &deg
+      </td> 
+      </tr>
+      <tr>
+        <td>
+          K2
+        </td>
+        <td>
+          {{measurement.k2}}mm @ {{measurement.axis - 90}} &deg
+      </td> 
+      </tr>
+      <tr>
+        <td>
+          White-to-White
+        </td>
+        <td>
+          {{measurement.limbus_rx * 2 | number:2}}mm
+      </td> 
+      </tr>
+      <tr>
+        <td>
+          Pupil Size
+        </td>
+        <td>
+          {{measurement.pupil_rx * 2 | number:2}}mm
+      </td> 
+      </tr>
+    </table>
+
+  </div >  
+  </div >
+</div>
+<script>
+$(function() {
+    $( "#accordion" ).accordion({heightStyle: "content"});
+  });
+</script>
