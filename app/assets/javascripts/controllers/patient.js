@@ -47,7 +47,9 @@ patientsApp.controller('PatientDetailCtrl', ['$scope', '$http', '$routeParams', 
   $http.get('/patients/' + $routeParams.patientId + '.json').success(function(data) {
     $scope.patient = data;
     $scope.patient.img_url = getPatientImg($scope.patient.gender);
-    $scope.$on('$routeChangeSuccess', function () {
+    $scope.$watch('measurements', function () {
+      $( "#accordion" ).accordion({heightStyle: "content"});
+      return false;
     });
-  }) 
+  })
 }]);
