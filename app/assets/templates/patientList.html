@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-sx-12 col-md-4">
 
-      <input class="form-control patient-search "  placeholder="Search Patient" ng-model="query">
+      <input class="form-control patient-search "  placeholder="Search Patient" ng-model="query.name">
     </div>
   </div>
   <a class="patient-add-button" href='#/new' ><img src="/assets/add_user.png" width="30" height="30"></a>
 </div>
-<div id="patientList row">
+<div >
   
-<div class="patient-card col-md-5 col-xs-12 col-lg-3" ng-repeat="patient in patients|filter:query">
+<div class="patient-card col-md-5 col-xs-12 col-lg-3 patient-listing" ng-repeat="patient in patients|filter:query ">
   <a class="patient-href col-md-5 col-xs-12 col-lg-3" href='{{patient.url}}'>
 
   <div class="absolute">

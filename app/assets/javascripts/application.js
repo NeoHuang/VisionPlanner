@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require angular.js
 //= require angular-route
+//= require angular-animate
 //= require jquery-ui-1.10.3.custom.min
 //= require_tree ./controllers/

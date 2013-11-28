@@ -104,3 +104,25 @@ top: 2.5em;
 margin-top: 0px;
 width: 300px;
 }
+.patient-listing.ng-enter,
+.patient-listing.ng-leave,
+.patient-listing.ng-move {
+  -webkit-transition: 0.5s linear all;
+  -moz-transition: 0.5s linear all;
+  -o-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+.patient-listing.ng-enter,
+.patient-listing.ng-move {
+  opacity: 0;
+  overflow: hidden;
+}
+.patient-listing.ng-leave {
+  opacity: 1;
+  overflow: hidden;
+}
+ 
+.patient-listing.ng-leave.ng-leave-active {
+  opacity: 0;
+  height: 0;
+}

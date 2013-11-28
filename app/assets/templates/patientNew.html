@@ -1,0 +1,26 @@
+<div class="row">
+<div class="col-lg-4 col-lg-offset-4">
+<h3>Add Patient </h3>
+  <form name="newPatientForm">
+
+    <div class="form-group" ng-class="{'has-error': newPatientForm.firstname.$invalid}">
+      <input class="form-control"  placeholder="First Name" name="firstname" ng-model="patient.firstname" required>
+    </div>
+    <div class="form-group" ng-class="{'has-error': newPatientForm.lastname.$invalid}">
+      <input class="form-control" placeholder="Last Name" name="lastname" ng-model="patient.lastname" required>
+    </div>
+    <div class="form-group" ng-class="{'has-error': newPatientForm.birth.$invalid}">
+      <input type="text" name="birth" class="form-control" id="birth" ng-model="patient.birth" placeholder="Birth: yyyy-mm-dd" required>
+    </div>
+    <div class="field">
+      <input type="radio" name="male" value="0" ng-model="patient.gender"> Male
+      <input type="radio" name="female" value="1" ng-model="patient.gender"> Female
+      <input type="radio" name="other" value="2" ng-model="patient.gender"> Other
+
+    </div>
+    <a href="#" class="btn btn-primary">Cancel</a>
+    <button class="btn btn-primary" ng-click="savePatient()" ng-disabled="newPatientForm.$invalid">Save</button>
+
+  </form>
+</div>
+</div>
