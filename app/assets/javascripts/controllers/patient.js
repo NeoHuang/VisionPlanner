@@ -2,7 +2,9 @@
 //angular.module('patientAnimations', ['ngAnimate']);
 var patientsApp = angular.module('patientsApp',[
     'ngRoute','ngAnimate']);
-
+patientsApp.config(["$httpProvider", function($httpProvider){
+  $httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token').attr('content');
+}]); 
 patientsApp.config(['$routeProvider',
     function($routeProvider){
       $routeProvider.
@@ -11,18 +13,18 @@ patientsApp.config(['$routeProvider',
   controller: 'PatientListCtrl'
   }).
 
-  when('/detail/:patientId', {
-    templateUrl: '/assets/patient.html',
-  controller: 'PatientDetailCtrl'
-  }).
+when('/detail/:patientId', {
+  templateUrl: '/assets/patient.html',
+controller: 'PatientDetailCtrl'
+}).
 
-  when('/new', {
-    templateUrl: '/assets/patientNew.html',
-  controller: 'PatientNewCtrl'
-  }).
-  otherwise({
-    redirectTo: '/list'});
-  }]);
+when('/new', {
+  templateUrl: '/assets/patientNew.html',
+controller: 'PatientNewCtrl'
+}).
+otherwise({
+  redirectTo: '/list'});
+}]);
 function getPatientImg(gender){
   switch (gender){
     case 0:
@@ -65,20 +67,20 @@ patientsApp.controller('PatientDetailCtrl', ['$scope', '$http', '$routeParams', 
   })
 }]);
 
-patientsApp.controller('PatientNewCtrl', ['$scope', '$http', function($scope, $http){
+patientsApp.controller('PatientNewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+
   $scope.savePatient = function() {
-    var url="/patients";
-    var patientwrapper={} ;
-    patientwrapper.patient = $scope.patient;
-    var json = angular.toJson(patientwrapper);
-    alert(json);
+    var json = angular.toJson($scope.patient);
+    var url="/patients.json";
     $http({
       method: 'POST',
       url: url,
       data:json, 
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+      headers: {'Content-Type': 'application/json', 'ACCEPT':  'application/json'}
+    }).success(function(data){
+      $location.path("/list");
     })
 
-  }
+    }
 
     }]);

@@ -25,6 +25,15 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
+    puts params;
+=begin
+    patient_params = ActiveSupport::JSON.decode(params[:data]);
+    @patient = Patient.new;
+    @patient.firstname = patient_params['firstname'];
+    @patient.lastname = patient_params['lastname'];
+    @patient.birth = Date.strptime(patient_params['birth'], "%Y-%m-%d");
+    @patient.gender = patient_params['gender'];
+=end
     @patient = Patient.new(patient_params)
 
     respond_to do |format|
