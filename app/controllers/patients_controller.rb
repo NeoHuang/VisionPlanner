@@ -66,7 +66,6 @@ class PatientsController < ApplicationController
   def destroy
     @patient.destroy
     respond_to do |format|
-      format.html { redirect_to patients_url }
       format.json { head :no_content }
     end
   end

@@ -53,6 +53,15 @@ patientsApp.controller('PatientListCtrl', function($scope, $http) {
     }
 
   })
+  $scope.deletePatient = function($index){
+    $http.delete('/patients/' + $scope.patients[$index].id + ".json").success(function(data)
+      {
+
+    alert("deleted " + $scope.patients[$index].id);
+    $scope.patients.splice($index, 1);
+      });
+
+  };
 });
 
 patientsApp.controller('PatientDetailCtrl', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
