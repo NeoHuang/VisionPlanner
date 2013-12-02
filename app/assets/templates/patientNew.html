@@ -10,7 +10,7 @@
       <input class="form-control" placeholder="Last Name" name="lastname" ng-model="patient.lastname" required>
     </div>
     <div class="form-group" ng-class="{'has-error': newPatientForm.birth.$invalid}">
-      <input type="text" name="birth" class="form-control" id="birth" ng-model="patient.birth" placeholder="Birth: yyyy-mm-dd" required>
+      <input type="text" name="birth" id="birth" class="form-control" id="birth" ng-model="patient.birth" placeholder="Birth: yyyy-mm-dd" required datepicker>
     </div>
     <div class="field">
       <input type="radio" name="male" value="0" ng-model="patient.gender"> Male
@@ -24,3 +24,15 @@
   </form>
 </div>
 </div>
+<script>
+$(function(){
+window.prettyPrint && prettyPrint();
+      var dstr = $('#birth')[0].value ;
+      if (dstr !== "")
+      {
+        d = new Date(dstr);
+        $('#birth').datapicker("option", "defaultDate",d); 
+      }
+      }
+ )
+</script>

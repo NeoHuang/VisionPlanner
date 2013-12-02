@@ -57,7 +57,7 @@ patientsApp.controller('PatientListCtrl', function($scope, $http) {
     $http.delete('/patients/' + $scope.patients[$index].id + ".json").success(function(data)
       {
 
-    alert("deleted " + $scope.patients[$index].id);
+    //alert("deleted " + $scope.patients[$index].id);
     $scope.patients.splice($index, 1);
       });
 
@@ -93,3 +93,31 @@ patientsApp.controller('PatientNewCtrl', ['$scope', '$http', '$location', functi
     }
 
     }]);
+patientsApp.directive('datepicker', function() {
+    return {
+        restrict: 'A',
+        require : 'ngModel',
+        link : function (scope, element, attrs, ngModelCtrl) {
+            $(function(){
+      var d = new Date(1950, 0, 1);
+			element.datepicker({
+				dateFormat: 'yy-mm-dd',
+        minDate: "-100Y", maxDate: 0,
+        changeMonth: true,
+        changeYear: true,
+        defaultDate: d,
+                    onSelect:function (date) {
+                        scope.$apply(function () {
+                            ngModelCtrl.$setViewValue(date);
+                        });
+                    }
+
+
+			})
+                element.datepicker({
+                    dateFormat:'dd/mm/yy',
+                });
+            });
+        }
+    }
+});
