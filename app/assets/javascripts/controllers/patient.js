@@ -57,8 +57,8 @@ patientsApp.controller('PatientListCtrl', function($scope, $http) {
     $http.delete('/patients/' + $scope.patients[$index].id + ".json").success(function(data)
       {
 
-    //alert("deleted " + $scope.patients[$index].id);
-    $scope.patients.splice($index, 1);
+        //alert("deleted " + $scope.patients[$index].id);
+        $scope.patients.splice($index, 1);
       });
 
   };
@@ -73,7 +73,45 @@ patientsApp.controller('PatientDetailCtrl', ['$scope', '$http', '$routeParams', 
       $( "#accordion" ).accordion({heightStyle: "content"});
       return false;
     });
-  })
+  });
+
+  $scope.editMeasurement = function($index) {
+    $scope.selectedIndex = $index;
+    $scope.selectedMeasurement = jQuery.extend(true, {}, $scope.patient.measurements[$index] );
+    delete $scope.selectedMeasurement.id;
+    delete $scope.selectedMeasurement.image;
+    $scope.selectedMeasurement.limbusDiameter = ($scope.selectedMeasurement.limbus_rx * 2).toFixed(2);
+    $(".background-popup").fadeIn(500);
+    $(".popup").fadeIn(500);
+
+  }
+  $scope.cancelEdit = function($index) {
+    $(".background-popup").fadeOut(100);
+    $(".popup").fadeOut(100);
+  }
+  $scope.saveEdit = function($index) {
+
+    $scope.selectedMeasurement.limbus_rx = $scope.selectedMeasurement.limbusDiameter / 2.0;
+    $scope.selectedMeasurement.limbus_ry = $scope.selectedMeasurement.limbusDiameter / 2.0;
+    var json = angular.toJson($scope.selectedMeasurement);
+    var url="/k_measurements/" + $scope.patient.measurements[$scope.selectedIndex].id + ".json";
+    $http({
+      method: 'PATCH',
+      url: url,
+      data:json, 
+      headers: {'Content-Type': 'application/json', 'ACCEPT':  'application/json'}
+    }).success(function(data){
+      alert(data);
+    $scope.patient.measurements[$scope.selectedIndex].k1 = $scope.selectedMeasurement.k1;
+    $scope.patient.measurements[$scope.selectedIndex].k2 = $scope.selectedMeasurement.k2;
+    $scope.patient.measurements[$scope.selectedIndex].axis = $scope.selectedMeasurement.axis;
+    $scope.patient.measurements[$scope.selectedIndex].limbus_rx = $scope.selectedMeasurement.limbusDiameter / 2.0;
+    $scope.patient.measurements[$scope.selectedIndex].limbus_ry = $scope.selectedMeasurement.limbusDiameter / 2.0;
+
+    $(".background-popup").fadeOut(100);
+    $(".popup").fadeOut(100);
+    })
+  }
 }]);
 
 patientsApp.controller('PatientNewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
@@ -90,34 +128,31 @@ patientsApp.controller('PatientNewCtrl', ['$scope', '$http', '$location', functi
       $location.path("/list");
     })
 
-    }
+  }
 
-    }]);
+}]);
 patientsApp.directive('datepicker', function() {
-    return {
-        restrict: 'A',
-        require : 'ngModel',
-        link : function (scope, element, attrs, ngModelCtrl) {
-            $(function(){
+  return {
+    restrict: 'A',
+  require : 'ngModel',
+  link : function (scope, element, attrs, ngModelCtrl) {
+    $(function(){
       var d = new Date(1950, 0, 1);
-			element.datepicker({
-				dateFormat: 'yy-mm-dd',
+      element.datepicker({
+        dateFormat: 'yy-mm-dd',
         minDate: "-100Y", maxDate: 0,
         changeMonth: true,
         changeYear: true,
         defaultDate: d,
-                    onSelect:function (date) {
-                        scope.$apply(function () {
-                            ngModelCtrl.$setViewValue(date);
-                        });
-                    }
-
-
-			})
-                element.datepicker({
-                    dateFormat:'dd/mm/yy',
-                });
-            });
+        onSelect:function (date) {
+          scope.$apply(function () {
+            ngModelCtrl.$setViewValue(date);
+          });
         }
-    }
+
+
+      })
+    });
+  }
+  }
 });

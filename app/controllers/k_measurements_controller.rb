@@ -69,6 +69,6 @@ class KMeasurementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def k_measurement_params
-      params.require(:k_measurement).permit(:timestamp, :k1, :k2, :axis, :white_to_white, :pupil_x, :pupil_y, :pupil_rx, :pupil_ry, :pupil_q, :limbus_x, :limbus_y, :limbus_rx, :limbus_ry, :limbus_q, :cr_x, :cr_y, :cr_q, :patient_id)
+      params.require(:k_measurement).permit(:timestamp, :k1, :k2, :axis, :white_to_white, :pupil_x, :pupil_y, :pupil_rx, :pupil_ry, :pupil_q, :limbus_x, :limbus_y, :limbus_rx, :limbus_ry, :limbus_q, :cr_x, :cr_y, :cr_q, :patient_id, :image)
     end
 end

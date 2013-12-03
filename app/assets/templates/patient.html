@@ -1,67 +1,119 @@
 
 <div class="row" style="margin-left:0;margin-right:0;">
 
-<div class="patient-card col-md-5 col-xs-12 col-lg-3" >
+  <div class="patient-card col-md-5 col-xs-12 col-lg-3" >
 
-  <div class="absolute">
-    <img class="gender-img" ng-src = '{{patient.img_url}}'>
+    <div class="absolute">
+      <img class="gender-img" ng-src = '{{patient.img_url}}'>
+    </div>
+    <div>
+      <div class = "patient-name">{{patient.firstname}} {{patient.lastname}}</div>
+      <div class = "patient-birth">{{patient.birth}}  </div>
+
+    </div>
   </div>
-  <div>
-    <div class = "patient-name">{{patient.firstname}} {{patient.lastname}}</div>
-    <div class = "patient-birth">{{patient.birth}}  </div>
-    
-  </div>
-  </a>
-</div>
 </div>
 <p>
 <div id="accordion">
-    <div  ng-repeat-start="measurement in patient.measurements">
-      Keratometry 
+  <div  ng-repeat-start="measurement in patient.measurements">
+    Keratometry 
   </div>
   <div class="row" ng-repeat-end >
     <img class="col-xs-12 col-md-8" ng-src="{{measurement.image}}">
     <div class="col-xs-12 col-md-4" >
 
       <table class="table table-bordered"> 
-      <tr>
-        <td>
-          K1
-        </td>
-        <td>
-          {{measurement.k1}}mm @ {{measurement.axis}} &deg
-      </td> 
-      </tr>
-      <tr>
-        <td>
-          K2
-        </td>
-        <td>
-          {{measurement.k2}}mm @ {{measurement.axis - 90}} &deg
-      </td> 
-      </tr>
-      <tr>
-        <td>
-          White-to-White
-        </td>
-        <td>
-          {{measurement.limbus_rx * 2 | number:2}}mm
-      </td> 
-      </tr>
-      <tr>
-        <td>
-          Pupil Size
-        </td>
-        <td>
-          {{measurement.pupil_rx * 2 | number:2}}mm
-      </td> 
-      </tr>
-    </table>
+        <tr>
+          <td>
+            K1
+          </td>
+          <td>
+            {{measurement.k1}}mm @ {{measurement.axis}} &deg
+          </td> 
+        </tr>
+        <tr>
+          <td>
+            K2
+          </td>
+          <td>
+            {{measurement.k2}}mm @ {{measurement.axis - 90}} &deg
+          </td> 
+        </tr>
+        <tr>
+          <td>
+            White-to-White
+          </td>
+          <td>
+            {{measurement.limbus_rx * 2 | number:2}}mm
+          </td> 
+        </tr>
+        <tr>
+          <td>
+            Pupil Size
+          </td>
+          <td>
+            {{measurement.pupil_rx * 2 | number:2}}mm
+          </td> 
+        </tr>
+      </table>
+      <img class="edit-img" src="/assets/edit.png" ng-click="editMeasurement($index)">
 
-  </div >  
+
+    </div >  
   </div >
+</div>
+
+<div class="popup">
+  <div style="margin:10px">
+    <form name="editMeasurmentForm" class="form-horizontal" >
+      <div class="form-group" ng-class="{'has-error': editMeasurmentForm.k1.$invalid}">
+        <label class="col-lg-3 control-label ">K1:</label>
+        <div class = "col-lg-3">
+          <input class="form-control"  placeholder="K1 " name="k1" ng-model="selectedMeasurement.k1" required>
+        </div>
+        <label class="control-label ">mm</label>
+        <label class="col-lg-1 control-label">@</label>
+        <div class="col-lg-3">
+          <input class="form-control number-field"  placeholder="K1 " name="k1" ng-model="selectedMeasurement.axis" required>
+        </div>
+        <label class="control-label">&deg</label>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error': editMeasurmentForm.k2.$invalid}">
+        <label class="col-lg-3 control-label">K2:</label>
+        <div class = "col-lg-3">
+          <input class="form-control number-field"  placeholder="K2 " name="k2" ng-model="selectedMeasurement.k2" required>
+        </div>
+        <label class="control-label">mm</label>
+        <label class="col-lg-1 control-label">@</label>
+        <label class="col-lg-3 control-label">{{selectedMeasurement.axis-90}}</label>
+
+        <label class="control-label ">&deg</label>
+      </div>
+
+      <div class="form-group" ng-class="{'has-error': editMeasurmentForm.limbusDiameter.$invalid}">
+        <label class="col-lg-3 control-label">White-to-White:</label>
+        <div class = "col-lg-3">
+          <input class="form-control number-field"  placeholder="White-to-White " name="wtw" ng-model="selectedMeasurement.limbusDiameter" required>
+        </div>
+        <label class="control-label">mm</label>
+      </div>
+
+
+      <div class="col-lg-6 col-lg-offset-3" style="margin-bottom:10px">
+      <button class="btn btn-primary" ng-click="cancelEdit($event)" type="button" >Cancel</button>
+      <button class="btn btn-primary" type="button" ng-click="saveEdit()" ng-disabled="newPatientForm.$invalid">Save</button>
+    </div>
+
+    </form>
+  </div>
+
+</div>
+
+<div class="background-popup">
+
 </div>
 <script>
 $(function(){
-});
+    });
 </script>
