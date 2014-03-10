@@ -16,7 +16,7 @@
 <p>
 <div id="accordion">
   <div  ng-repeat-start="measurement in patient.measurements">
-    Keratometry 
+    Keratometry {{$index + 1}} 
   </div>
   <div class="row" ng-repeat-end >
     <img class="col-xs-12 col-md-8" ng-src="{{measurement.image}}">
@@ -67,13 +67,13 @@
   <div style="margin:10px">
     <form name="editMeasurmentForm" class="form-horizontal" >
       <div class="form-group" ng-class="{'has-error': editMeasurmentForm.k1.$invalid}">
-        <label class="col-lg-3 control-label ">K1:</label>
-        <div class = "col-lg-3">
+        <label class="col-lg-3 col-xs-3 control-label ">K1:</label>
+        <div class = "col-lg-3 col-xs-3">
           <input class="form-control"  placeholder="K1 " name="k1" ng-model="selectedMeasurement.k1" required>
         </div>
         <label class="control-label ">mm</label>
-        <label class="col-lg-1 control-label">@</label>
-        <div class="col-lg-3">
+        <label class="col-lg-1 col-xs-1 control-label">@</label>
+        <div class="col-lg-3 col-xs-3">
           <input class="form-control number-field"  placeholder="K1 " name="k1" ng-model="selectedMeasurement.axis" required>
         </div>
         <label class="control-label">&deg</label>
