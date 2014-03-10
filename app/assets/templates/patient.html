@@ -28,7 +28,7 @@
             K1
           </td>
           <td>
-            {{measurement.k1}}mm @ {{measurement.axis}} &deg
+            {{measurement.k1 | number:2}}mm @ {{measurement.axis | number:2}} &deg
           </td> 
         </tr>
         <tr>
@@ -36,7 +36,7 @@
             K2
           </td>
           <td>
-            {{measurement.k2}}mm @ {{measurement.axis - 90}} &deg
+            {{measurement.k2 | number: 2}}mm @ {{measurement.axis - 90 | number:2}} &deg
           </td> 
         </tr>
         <tr>

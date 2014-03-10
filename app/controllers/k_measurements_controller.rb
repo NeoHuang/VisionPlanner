@@ -40,6 +40,7 @@ class KMeasurementsController < ApplicationController
   # PATCH/PUT /k_measurements/1
   # PATCH/PUT /k_measurements/1.json
   def update
+    p k_measurement_params
     respond_to do |format|
       if @k_measurement.update(k_measurement_params)
         format.html { redirect_to @k_measurement, notice: 'K measurement was successfully updated.' }
